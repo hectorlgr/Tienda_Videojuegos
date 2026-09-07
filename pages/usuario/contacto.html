@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contacto - Checkpoint Store</title>
+    <!-- Ajusta la ruta relativa para salir de pages/usuario hacia assets -->
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+  </head>
+  <body class="bg-light">
+
+    <!-- Contenedor centrado -->
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+
+          <!-- Encabezado / Logo de la tienda -->
+          <div class="text-center mb-4">
+            <div class="border d-inline-block bg-white mb-2" style="width: 180px; height: 140px;">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcNgblFypWtkD9MUCXI9i2QxQ-hJ5oR3GiaULJOSEE4A&s" alt="Logo de Checkpoint Store" width="180" height="140">
+            </div>
+            <h4 class="fw-bold">Checkpoint Store</h4>
+          </div>
+
+          <!-- Tarjeta del formulario -->
+          <div class="card shadow-sm border-0">
+            <div class="card-header bg-secondary text-white text-center py-2">
+              <h5 class="mb-0 fs-6 text-uppercase fw-semibold">Ponte en contacto con nosotros</h5>
+            </div>
+
+            <div class="card-body p-4">
+              <form id="formContacto" novalidate>
+
+                <!-- Campo: Nombre -->
+                <div class="mb-3">
+                  <label for="nombre" class="form-label fw-semibold">Nombre Completo</label>
+                  <input type="text" class="form-control" id="nombre" required maxlength="100" placeholder="Escribe tu nombre...">
+                  <div class="invalid-feedback" id="errorNombre"></div>
+                </div>
+
+                <!-- Campo: Correo -->
+                <div class="mb-3">
+                  <label for="correo" class="form-label fw-semibold">Correo Electrónico</label>
+                  <input type="email" class="form-control" id="correo" required maxlength="100" placeholder="Escribe tu email...">
+                  <div class="invalid-feedback" id="errorCorreo"></div>
+                </div>
+
+                <!-- Campo: Comentario -->
+                <div class="mb-4">
+                  <label for="comentario" class="form-label fw-semibold">Comentario</label>
+                  <textarea class="form-control" id="comentario" rows="4" required maxlength="500" placeholder="Escribe tu mensaje..."></textarea>
+                  <div class="form-text text-end"><span id="contadorCaracteres">0</span>/500</div>
+                  <div class="invalid-feedback" id="errorComentario"></div>
+                </div>
+
+                <!-- Botón de envío -->
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-dark py-2">Enviar Mensaje</button>
+                </div>
+
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts locales -->
+    <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/validaciones.js"></script>
+  </body>
+</html>
