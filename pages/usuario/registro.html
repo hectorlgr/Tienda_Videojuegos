@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registro de Usuario - Checkpoint Store</title>
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+  </head>
+  <body class="bg-light">
+
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+
+          <!-- Encabezado / Logo -->
+          <div class="text-center mb-4">
+            <h4 class="fw-bold">Checkpoint Store</h4>
+            <p class="text-muted">Crea tu cuenta de cliente</p>
+          </div>
+
+          <!-- Tarjeta de Registro -->
+          <div class="card shadow-sm border-0">
+            <div class="card-header bg-secondary text-white text-center py-2">
+              <h5 class="mb-0 fs-6 text-uppercase fw-semibold">Registro de Usuario</h5>
+            </div>
+
+            <div class="card-body p-4">
+              <form id="formRegistro" novalidate>
+
+                <!-- RUN -->
+                <div class="mb-3">
+                  <label for="run" class="form-label fw-semibold">RUN (sin puntos ni guion)</label>
+                  <input type="text" class="form-control" id="run" maxlength="12" placeholder="Ej: 19.011.022-K">
+                  <div class="invalid-feedback" id="errorRun"></div>
+                </div>
+
+                <!-- Nombres y Apellidos -->
+                <div class="row g-2 mb-3">
+                  <div class="col-md-6">
+                    <label for="nombre" class="form-label fw-semibold">Nombre</label>
+                    <input type="text" class="form-control" id="nombreRegistro" maxlength="50" placeholder="Nombre">
+                    <div class="invalid-feedback" id="errorNombreRegistro"></div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="apellidos" class="form-label fw-semibold">Apellidos</label>
+                    <input type="text" class="form-control" id="apellidos" maxlength="100" placeholder="Apellidos">
+                    <div class="invalid-feedback" id="errorApellidos"></div>
+                  </div>
+                </div>
+
+                <!-- Correo Electrónico -->
+                <div class="mb-3">
+                  <label for="correo" class="form-label fw-semibold">Correo Electrónico</label>
+                  <input type="email" class="form-control" id="correoRegistro" maxlength="100" placeholder="nombre@ejemplo.com">
+                  <div class="invalid-feedback" id="errorCorreoRegistro"></div>
+                </div>
+
+                <!-- Fecha de Nacimiento (Opcional) -->
+                <div class="mb-3">
+                  <label for="fechaNacimiento" class="form-label fw-semibold">Fecha de Nacimiento <span class="text-muted fw-normal">(Opcional)</span></label>
+                  <input type="date" class="form-control" id="fechaNacimiento">
+                </div>
+
+                <!-- Región y Comuna dependientes -->
+                <div class="row g-2 mb-3">
+                  <div class="col-md-6">
+                    <label for="region" class="form-label fw-semibold">Región</label>
+                    <select class="form-select" id="region">
+                      <option value="">Selecciona región...</option>
+                    </select>
+                    <div class="invalid-feedback" id="errorRegion"></div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="comuna" class="form-label fw-semibold">Comuna</label>
+                    <select class="form-select" id="comuna" disabled>
+                      <option value="">Selecciona comuna...</option>
+                    </select>
+                    <div class="invalid-feedback" id="errorComuna"></div>
+                  </div>
+                </div>
+
+                <!-- Dirección -->
+                <div class="mb-4">
+                  <label for="direccion" class="form-label fw-semibold">Dirección</label>
+                  <input type="text" class="form-control" id="direccion" maxlength="300" placeholder="Calle, número, depto">
+                  <div class="invalid-feedback" id="errorDireccion"></div>
+                </div>
+
+                <!-- Botón de Registro -->
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-dark py-2">Registrarme</button>
+                </div>
+
+                <div class="text-center mt-3">
+                  <span class="text-muted small">¿Ya tienes cuenta? </span>
+                  <a href="login.html" class="small text-decoration-none">Inicia sesión</a>
+                </div>
+
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/validaciones.js"></script>
+  </body>
+</html>
