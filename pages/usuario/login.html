@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Iniciar Sesión - Checkpoint Store</title>
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+  </head>
+  <body class="bg-light">
+
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+
+          <!-- Logo y Nombre de la empresa -->
+          <div class="text-center mb-4">
+            <div class="border d-inline-block bg-white mb-2 overflow-hidden shadow-sm" style="width: 140px; height: 140px; border-radius: 50%;">
+              <!-- Reemplaza el src con tu logo real -->
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcNgblFypWtkD9MUCXI9i2QxQ-hJ5oR3GiaULJOSEE4A&s" alt="Logo Tienda" class="w-100 h-100 object-fit-cover">
+            </div>
+            <h4 class="fw-bold mt-2">Checkpoint Store</h4>
+          </div>
+
+          <!-- Tarjeta de Login -->
+          <div class="card shadow-sm border-0">
+            <div class="card-header bg-secondary text-white text-center py-2">
+              <h5 class="mb-0 fs-6 text-uppercase fw-semibold">Inicio de Sesión</h5>
+            </div>
+
+            <div class="card-body p-4">
+              <form id="formLogin" novalidate>
+
+                <!-- Campo: Correo -->
+                <div class="mb-3">
+                  <label for="correoLogin" class="form-label fw-semibold">Correo</label>
+                  <input type="email" class="form-control" id="correoLogin" maxlength="100" placeholder="nombre@ejemplo.com">
+                  <div class="invalid-feedback" id="errorCorreoLogin"></div>
+                </div>
+
+                <!-- Campo: Contraseña -->
+                <div class="mb-4">
+                  <label for="passwordLogin" class="form-label fw-semibold">Contraseña</label>
+                  <input type="password" class="form-control" id="passwordLogin" minlength="8" placeholder="Ingresa tu contraseña">
+                  <div class="invalid-feedback" id="errorPasswordLogin"></div>
+                </div>
+
+                <!-- Botón de envío -->
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-dark py-2">Iniciar sesión</button>
+                </div>
+
+                <div class="text-center mt-3">
+                  <span class="text-muted small">¿No tienes cuenta? </span>
+                  <a href="registro.html" class="small text-decoration-none">Regístrate aquí</a>
+                </div>
+
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/validaciones.js"></script>
+  </body>
+</html>

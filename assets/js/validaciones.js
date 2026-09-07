@@ -288,3 +288,69 @@ const formatearRUN = (valor) => {
     }
   });
 });
+
+// ==========================================
+// VALIDACIONES Y LÓGICA DE INICIO DE SESIÓN
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+  const formLogin = document.getElementById('formLogin');
+  if (!formLogin) return;
+
+  const correo = document.getElementById('correoLogin');
+  const password = document.getElementById('passwordLogin');
+
+  // Regex para RFC 2822 (Correo)
+  const rfc2822Regex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+
+  // Regex para Contraseña: Letras, números, caracteres especiales y longitud de 4 a 10
+  const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/;
+
+  const setFeedback = (input, idFeedback, esValido, mensajeError = '') => {
+    const contenedor = document.getElementById(idFeedback);
+    if (!esValido) {
+      input.classList.remove('is-valid');
+      input.classList.add('is-invalid');
+      if (contenedor) contenedor.textContent = mensajeError;
+    } else {
+      input.classList.remove('is-invalid');
+      input.classList.add('is-valid');
+      if (contenedor) contenedor.textContent = '';
+    }
+    return esValido;
+  };
+
+  const validarCorreoLogin = () => {
+    const valor = correo.value.trim();
+    if (!valor) return setFeedback(correo, 'errorCorreoLogin', false, 'El correo es requerido.');
+    if (valor.length > 100) return setFeedback(correo, 'errorCorreoLogin', false, 'Máximo 100 caracteres permitidos.');
+    if (!rfc2822Regex.test(valor)) return setFeedback(correo, 'errorCorreoLogin', false, 'Formato de correo inválido.');
+    return setFeedback(correo, 'errorCorreoLogin', true);
+  };
+
+  const validarPasswordLogin = () => {
+    const valor = password.value.trim();
+    if (!valor) return setFeedback(password, 'errorPasswordLogin', false, 'La contraseña es requerida.');
+    if (valor.length < 8) return setFeedback(password, 'errorPasswordLogin', false, 'Debe tener al menos 8 caracteres.');
+    if (!passwordRegex.test(valor)) return setFeedback(password, 'errorPasswordLogin', false, 'Debe contener al menos una mayuscula, una minuscula, un numero y contener un carácter especial.');
+    return setFeedback(password, 'errorPasswordLogin', true);
+  };
+
+  correo.addEventListener('input', validarCorreoLogin);
+  password.addEventListener('input', validarPasswordLogin);
+
+  formLogin.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const okCorreo = validarCorreoLogin();
+    const okPass = validarPasswordLogin();
+
+    if (okCorreo && okPass) {
+      alert('¡Inicio de sesión exitoso!');
+      formLogin.reset();
+      document.querySelectorAll('#formLogin .is-valid').forEach(el => el.classList.remove('is-valid'));
+
+      // Aquí iría la redirección al home en el futuro:
+      // window.location.href = '../../index.html';
+    }
+  });
+});
