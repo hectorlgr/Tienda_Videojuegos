@@ -1,69 +1,190 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mi Carrito - Checkpoint Store</title>
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/css/style.css">
-    <link type="text/css" rel="stylesheet" href="assets/css/custom.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  </head>
-  <body class="bg-light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <div class="container py-5">
-      <h2 class="mb-4 fw-bold">Mi carrito de compras</h2>
+        <title>Mi Carrito - Checkpoint Store</title>
 
-      <div class="row">
-        <!-- Columna Izquierda: Lista de Productos -->
-        <div class="col-lg-8" id="contenedor-items-carrito">
-          <!-- Los items se inyectan dinámicamente con JS -->
-        </div>
+        <!-- Google font -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
-        <!-- Columna Derecha: Resumen y Pago -->
-        <div class="col-lg-4">
-          <div class="card shadow-sm border-0">
-            <div class="card-body p-4">
-              <h5 class="fw-bold mb-4">Resumen de Orden</h5>
-
-              <div class="d-flex justify-content-between mb-3">
-                <span>Subtotal:</span>
-                <span id="resumen-subtotal" class="fw-semibold">$0</span>
-              </div>
-
-              <!-- Selector de Región para Envío -->
-              <div class="mb-3">
-                <label for="region-envio" class="form-label small text-muted">Región de Envío</label>
-                <select class="form-select form-select-sm" id="region-envio">
-                  <option value="0">Seleccione región...</option>
-                  <option value="3000">Región Metropolitana ($3.000)</option>
-                  <option value="4500">Región de Valparaíso ($4.500)</option>
-                  <option value="5000">Región de la Araucanía ($5.000)</option>
-                  <option value="4000">Región de Ñuble ($4.000)</option>
-                </select>
-              </div>
-
-              <div class="d-flex justify-content-between mb-3">
-                <span>Costo de Envío:</span>
-                <span id="resumen-envio" class="fw-semibold">$0</span>
-              </div>
-
-              <hr>
-
-              <div class="d-flex justify-content-between mb-4">
-                <span class="fs-5 fw-bold">TOTAL:</span>
-                <span id="resumen-total" class="fs-5 fw-bold text-success">$0</span>
-              </div>
-
-              <button class="btn btn-success w-100 fw-bold py-2" id="btn-pagar">PAGAR</button>
+        <!-- CSS unificados en assets -->
+        <link type="text/css" rel="stylesheet" href="../../assets/css/bootstrap.min.css"/>
+        <link type="text/css" rel="stylesheet" href="../../assets/css/slick.css"/>
+        <link type="text/css" rel="stylesheet" href="../../assets/css/slick-theme.css"/>
+        <link type="text/css" rel="stylesheet" href="../../assets/css/nouislider.min.css"/>
+        <link rel="stylesheet" href="../../assets/css/font-awesome.min.css">
+        <link type="text/css" rel="stylesheet" href="../../assets/css/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../assets/css/custom.css"/>
+    </head>
+    <body class="bg-light">
+        <!-- HEADER -->
+        <header>
+            <div id="top-header">
+                <div class="container">
+                    <ul class="header-links float-start">
+                        <li><a href="#"><i class="fa fa-phone"></i> +56 9 1234 5678</a></li>
+                        <li><a href="#"><i class="fa fa-envelope-o"></i> contacto@CheckPointStore.cl</a></li>
+                    </ul>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <script src="../../assets/js/bootstrap.bundle.min.js"></script>
-    <script src="../../assets/js/data-productos.js"></script>
-    <script src="../../assets/js/carrito.js"></script>
-  </body>
+            <div id="header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="header-logo">
+                                <a href="../../index.html" class="logo">
+                                    <img src="../../assets/img/Logo_Checkpoint.png" alt="CheckPoint Store">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="header-search">
+                                <form id="search-form">
+                                <input class="input" id="search-input" placeholder="Buscar producto..." autocomplete="off">
+                                <button class="search-btn" type="submit">Buscar</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 clearfix">
+                            <div class="header-ctn">
+                                <!-- Cart -->
+                                <div class="dropdown">
+                                    <a href="carrito.html">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <span>Mi Carrito</span>
+                                        <div class="qty" id="cart-qty">0</div>
+                                    </a>
+                                </div>
+                                <!-- /Cart -->
+
+                                <div class="menu-toggle">
+                                    <a href="#">
+                                        <i class="fa fa-bars"></i>
+                                        <span>Menú</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- /HEADER -->
+
+        <!-- NAVIGATION -->
+        <nav id="navigation">
+            <div class="container">
+                <div id="responsive-nav">
+                    <ul class="main-nav">
+                        <li><a href="../../index.html">Inicio</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="LuCriticas.html">Críticas</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- /NAVIGATION -->
+
+        <!-- BREADCRUMB -->
+        <div id="breadcrumb" class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="breadcrumb-tree">
+                            <li><a href="../../index.html">Inicio</a></li>
+                            <li class="active">Mi Carrito</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /BREADCRUMB -->
+
+        <!-- SECTION: Carrito de Compras -->
+        <div class="section">
+            <div class="container py-5">
+                <h2 class="mb-4 fw-bold">Mi carrito de compras</h2>
+
+                <div class="row">
+                    <!-- Columna Izquierda: Lista de Productos -->
+                    <div class="col-lg-8" id="contenedor-items-carrito">
+                        <!-- Los items se inyectan dinámicamente con JS -->
+                    </div>
+
+                    <!-- Columna Derecha: Resumen y Pago -->
+                    <div class="col-lg-4">
+                        <div class="card shadow-sm border-0">
+                            <div class="card-body p-4">
+                                <h5 class="fw-bold mb-4">Resumen de Orden</h5>
+
+                                <div class="d-flex justify-content-between mb-3">
+                                    <span>Subtotal:</span>
+                                    <span id="resumen-subtotal" class="fw-semibold">$0</span>
+                                </div>
+
+                                <!-- Selector de Región para Envío -->
+                                <div class="mb-3">
+                                    <label for="region-envio" class="form-label small text-muted">Región de Envío</label>
+                                    <select class="form-select form-select-sm" id="region-envio">
+                                        <option value="0">Seleccione región...</option>
+                                        <option value="3000">Región Metropolitana ($3.000)</option>
+                                        <option value="4500">Región de Valparaíso ($4.500)</option>
+                                        <option value="5000">Región de la Araucanía ($5.000)</option>
+                                        <option value="4000">Región de Ñuble ($4.000)</option>
+                                    </select>
+                                </div>
+
+                                <div class="d-flex justify-content-between mb-3">
+                                    <span>Costo de Envío:</span>
+                                    <span id="resumen-envio" class="fw-semibold">$0</span>
+                                </div>
+
+                                <hr>
+
+                                <div class="d-flex justify-content-between mb-4">
+                                    <span class="fs-5 fw-bold">TOTAL:</span>
+                                    <span id="resumen-total" class="fs-5 fw-bold text-success">$0</span>
+                                </div>
+
+                                <button class="btn btn-success w-100 fw-bold py-2" id="btn-pagar">PAGAR</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /SECTION -->
+
+        <!-- FOOTER -->
+        <footer id="footer">
+            <div id="bottom-footer" class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span class="copyright">
+                                Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                                Tienda de Videojuegos — Proyecto DuocUC
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- /FOOTER -->
+
+        <!-- Scripts unificados en assets -->
+        <script src="../../assets/js/jquery.min.js"></script>
+        <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../../assets/js/slick.min.js"></script>
+        <script src="../../assets/js/main.js"></script>
+        <script src="../../assets/js/data-productos.js"></script>
+        <script src="../../assets/js/carrito.js"></script>
+    </body>
 </html>
