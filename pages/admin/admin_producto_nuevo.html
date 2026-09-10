@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Nuevo Producto - CheckPoint Store</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="../../assets/css/slick.css"/>
+        <link type="text/css" rel="stylesheet" href="../../assets/css/slick-theme.css"/>
+        <link rel="stylesheet" href="../../assets/css/font-awesome.min.css">
+        <link type="text/css" rel="stylesheet" href="../../assets/css/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../assets/css/custom.css"/>
+    </head>
+	<body>
+		<!-- GUARD: solo administrador puede crear productos -->
+		<script src="../../assets/js/admin-guard.js" data-roles="administrador"></script>
+
+		<!-- HEADER -->
+		<header>
+			<div id="top-header">
+				<div class="container">
+					<ul class="header-links float-start">
+						<li><a href="#"><i class="fa fa-phone"></i> +56 9 1234 5678</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> contacto@CheckPointStore.cl</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="header">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-3">
+							<div class="header-logo">
+								<a href="index.html" class="logo">
+									<img src="../../assets/img/Logo_Checkpoint.png" alt="CheckPoint Store">
+								</a>
+							</div>
+						</div>
+						<div class="col-md-3 clearfix">
+							<div class="header-ctn">
+								<a href="#" id="btnCerrarSesion" style="cursor:pointer;"><i class="fa fa-sign-out"></i> Cerrar sesión</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- /HEADER -->
+
+		<!-- NAVIGATION -->
+		<nav id="navigation">
+			<div class="container">
+				<div id="responsive-nav">
+					<ul class="main-nav nav navbar-nav">
+						<li><a href="admin_ordenes.html">Ordenes</a></li>
+						<li class="active"><a href="admin_stock.html">Stock</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- /NAVIGATION -->
+
+		<!-- SECTION: Formulario Nuevo Producto -->
+		<div class="section">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-8">
+
+						<div class="card shadow-sm border-0">
+							<div class="card-header bg-secondary text-white text-center py-2">
+								<h5 class="mb-0 fs-6 text-uppercase fw-semibold">Nuevo Producto</h5>
+							</div>
+
+							<div class="card-body p-4">
+								<form id="formNuevoProducto" novalidate>
+
+									<div class="row">
+										<!-- Código -->
+										<div class="col-md-6 mb-3">
+											<label for="codigo" class="form-label fw-semibold">Código producto</label>
+											<input type="text" class="form-control" id="codigo" placeholder="Ej: PS5-001">
+											<div class="invalid-feedback" id="errorCodigo"></div>
+										</div>
+
+										<!-- Categoría -->
+										<div class="col-md-6 mb-3">
+											<label for="categoria" class="form-label fw-semibold">Categoría</label>
+											<select class="form-select" id="categoria">
+												<option value="">Selecciona categoría...</option>
+												<option value="juego">Juego</option>
+												<option value="consola">Consola</option>
+												<option value="accesorio">Accesorio</option>
+												<option value="figura">Figura</option>
+											</select>
+											<div class="invalid-feedback" id="errorCategoria"></div>
+										</div>
+									</div>
+
+									<!-- Formato: solo aplica y se exige si la categoría es "Juego" -->
+									<div class="row" id="grupoFormato" style="display:none;">
+										<div class="col-md-6 mb-3">
+											<label for="formato" class="form-label fw-semibold">Formato</label>
+											<select class="form-select" id="formato">
+												<option value="">Selecciona formato...</option>
+												<option value="digital">Digital</option>
+												<option value="fisico">Físico</option>
+											</select>
+											<div class="invalid-feedback" id="errorFormato"></div>
+										</div>
+									</div>
+
+									<!-- Nombre -->
+									<div class="mb-3">
+										<label for="nombreProducto" class="form-label fw-semibold">Nombre</label>
+										<input type="text" class="form-control" id="nombreProducto" maxlength="100" placeholder="Nombre del producto">
+										<div class="invalid-feedback" id="errorNombreProducto"></div>
+									</div>
+
+									<!-- Descripción -->
+									<div class="mb-3">
+										<label for="descripcionProducto" class="form-label fw-semibold">
+											Descripción <span class="text-muted fw-normal">(opcional)</span>
+										</label>
+										<textarea class="form-control" id="descripcionProducto" rows="3" maxlength="500" placeholder="Describe el producto..."></textarea>
+										<div class="form-text"><span id="contadorDescripcion">0</span>/500 caracteres</div>
+										<div class="invalid-feedback" id="errorDescripcionProducto"></div>
+									</div>
+
+									<div class="row">
+										<!-- Precio -->
+										<div class="col-md-4 mb-3">
+											<label for="precio" class="form-label fw-semibold">Precio</label>
+											<div class="input-group">
+												<span class="input-group-text">$</span>
+												<input type="number" class="form-control" id="precio" min="0" step="0.01" placeholder="0">
+											</div>
+											<div class="invalid-feedback d-block" id="errorPrecio"></div>
+										</div>
+
+										<!-- Stock -->
+										<div class="col-md-4 mb-3">
+											<label for="stockProducto" class="form-label fw-semibold">Stock</label>
+											<input type="number" class="form-control" id="stockProducto" min="0" step="1" placeholder="0">
+											<div class="invalid-feedback d-block" id="errorStockProducto"></div>
+										</div>
+
+										<!-- Stock crítico -->
+										<div class="col-md-4 mb-3">
+											<label for="stockCritico" class="form-label fw-semibold">
+												Stock crítico <span class="text-muted fw-normal">(opcional)</span>
+											</label>
+											<input type="number" class="form-control" id="stockCritico" min="0" step="1" placeholder="0">
+											<div class="invalid-feedback d-block" id="errorStockCritico"></div>
+										</div>
+									</div>
+
+									<!-- Imagen -->
+									<div class="mb-4">
+										<label for="imagenProducto" class="form-label fw-semibold">
+											Ruta de imagen <span class="text-muted fw-normal">(opcional)</span>
+										</label>
+										<input type="text" class="form-control" id="imagenProducto" placeholder="assets/img/mi-producto.jpg">
+										<div class="form-text">Si lo dejas vacío, se usa una imagen genérica.</div>
+									</div>
+
+									<div id="mensajeExito" class="alert alert-success d-none"></div>
+
+									<div class="d-grid">
+										<button type="submit" class="btn btn-dark py-2">Guardar producto</button>
+									</div>
+
+								</form>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /SECTION -->
+
+		<!-- FOOTER -->
+		<footer id="footer">
+			<div id="bottom-footer" class="section">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<span class="copyright">
+								Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+								CheckPoint Store — Proyecto DuocUC
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- /FOOTER -->
+
+		<script src="../../assets/js/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../../assets/js/main.js"></script>
+
+        <script src="../../assets/js/data-productos.js"></script>
+        <script src="../../assets/js/productos-persistidos.js"></script>
+        <script src="../../assets/js/admin_producto_nuevo.js"></script>
+
+        <script>
+          document.getElementById("btnCerrarSesion")?.addEventListener("click", (e) => {
+            e.preventDefault();
+            sessionStorage.removeItem("usuarioActivo");
+            window.location.href = "../usuario/login.html";
+          });
+        </script>
+	</body>
+</html>

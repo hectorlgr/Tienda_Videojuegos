@@ -345,12 +345,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const okPass = validarPasswordLogin();
 
     if (okCorreo && okPass) {
-      alert('¡Inicio de sesión exitoso!');
+      const usuario = buscarUsuario(correo.value.trim(), password.value.trim());
+
+      if (!usuario) {
+        setFeedback(password, 'errorPasswordLogin', false, 'Correo o contraseña incorrectos.');
+        return;
+      }
+
+      // Sesión activa mientras no haya backend real (se borra al cerrar la pestaña)
+      sessionStorage.setItem('usuarioActivo', JSON.stringify({
+        correo: usuario.correo,
+        nombre: usuario.nombre,
+        tipoUsuario: usuario.tipoUsuario,
+      }));
+
       formLogin.reset();
       document.querySelectorAll('#formLogin .is-valid').forEach(el => el.classList.remove('is-valid'));
 
-      // Aquí iría la redirección al home en el futuro:
-      // window.location.href = '../../index.html';
+      // Redirige según el ROL del usuario, nunca según un botón que la persona eligió
+      switch (usuario.tipoUsuario) {
+        case 'administrador':
+          window.location.href = '../admin/admin_stock.html';
+          break;
+        case 'vendedor':
+          window.location.href = '../admin/admin_ordenes.html';
+          break;
+        default:
+          window.location.href = '../../index.html';
+      }
     }
   });
 });
