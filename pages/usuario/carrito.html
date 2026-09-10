@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mi Carrito - Checkpoint Store</title>
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/custom.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </head>
+  <body class="bg-light">
+
+    <div class="container py-5">
+      <h2 class="mb-4 fw-bold">Mi carrito de compras</h2>
+
+      <div class="row">
+        <!-- Columna Izquierda: Lista de Productos -->
+        <div class="col-lg-8" id="contenedor-items-carrito">
+          <!-- Los items se inyectan dinámicamente con JS -->
+        </div>
+
+        <!-- Columna Derecha: Resumen y Pago -->
+        <div class="col-lg-4">
+          <div class="card shadow-sm border-0">
+            <div class="card-body p-4">
+              <h5 class="fw-bold mb-4">Resumen de Orden</h5>
+
+              <div class="d-flex justify-content-between mb-3">
+                <span>Subtotal:</span>
+                <span id="resumen-subtotal" class="fw-semibold">$0</span>
+              </div>
+
+              <!-- Selector de Región para Envío -->
+              <div class="mb-3">
+                <label for="region-envio" class="form-label small text-muted">Región de Envío</label>
+                <select class="form-select form-select-sm" id="region-envio">
+                  <option value="0">Seleccione región...</option>
+                  <option value="3000">Región Metropolitana ($3.000)</option>
+                  <option value="4500">Región de Valparaíso ($4.500)</option>
+                  <option value="5000">Región de la Araucanía ($5.000)</option>
+                  <option value="4000">Región de Ñuble ($4.000)</option>
+                </select>
+              </div>
+
+              <div class="d-flex justify-content-between mb-3">
+                <span>Costo de Envío:</span>
+                <span id="resumen-envio" class="fw-semibold">$0</span>
+              </div>
+
+              <hr>
+
+              <div class="d-flex justify-content-between mb-4">
+                <span class="fs-5 fw-bold">TOTAL:</span>
+                <span id="resumen-total" class="fs-5 fw-bold text-success">$0</span>
+              </div>
+
+              <button class="btn btn-success w-100 fw-bold py-2" id="btn-pagar">PAGAR</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/data-productos.js"></script>
+    <script src="../../assets/js/carrito.js"></script>
+  </body>
+</html>

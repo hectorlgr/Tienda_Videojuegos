@@ -117,3 +117,10 @@
   height: 100%;
   object-fit: cover;
 }
+
+/* Control global del logo de la tienda */
+.header-logo .logo img {
+  max-width: 160px;
+  height: auto;
+  display: block;
+}

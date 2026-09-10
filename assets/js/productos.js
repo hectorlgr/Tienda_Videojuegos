@@ -25,7 +25,7 @@ function crearTarjetaProducto(producto) {
       <div class="product">
         <div class="product-img">
           <a href="product.html?id=${producto.id}">
-            <img src="${producto.imagen}" alt="${producto.nombre}">
+            <img src="../../${producto.imagen}" alt="${producto.nombre}">
           </a>
           <div class="product-label">${etiquetaFormato}</div>
         </div>

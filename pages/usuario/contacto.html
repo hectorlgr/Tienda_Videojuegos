@@ -1,74 +1,187 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contacto - Checkpoint Store</title>
-    <!-- Ajusta la ruta relativa para salir de pages/usuario hacia assets -->
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/css/style.css">
-  </head>
-  <body class="bg-light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Contenedor centrado -->
-    <div class="container py-5">
-      <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-5">
+        <title>Contacto - Checkpoint Store</title>
 
-          <!-- Encabezado / Logo de la tienda -->
-          <div class="text-center mb-4">
-            <div class="border d-inline-block bg-white mb-2" style="width: 180px; height: 140px;">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcNgblFypWtkD9MUCXI9i2QxQ-hJ5oR3GiaULJOSEE4A&s" alt="Logo de Checkpoint Store" width="180" height="140">
+        <!-- Google font -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+        <!-- CSS unificados en assets -->
+        <link type="text/css" rel="stylesheet" href="../../assets/css/bootstrap.min.css"/>
+        <link type="text/css" rel="stylesheet" href="../../assets/css/slick.css"/>
+        <link type="text/css" rel="stylesheet" href="../../assets/css/slick-theme.css"/>
+        <link type="text/css" rel="stylesheet" href="../../assets/css/nouislider.min.css"/>
+        <link rel="stylesheet" href="../../assets/css/font-awesome.min.css">
+        <link type="text/css" rel="stylesheet" href="../../assets/css/style.css"/>
+        <link type="text/css" rel="stylesheet" href="../../assets/css/custom.css"/>
+    </head>
+    <body class="bg-light">
+        <!-- HEADER -->
+        <header>
+            <div id="top-header">
+                <div class="container">
+                    <ul class="header-links float-start">
+                        <li><a href="#"><i class="fa fa-phone"></i> +56 9 1234 5678</a></li>
+                        <li><a href="#"><i class="fa fa-envelope-o"></i> contacto@CheckPointStore.cl</a></li>
+                    </ul>
+                </div>
             </div>
-            <h4 class="fw-bold">Checkpoint Store</h4>
-          </div>
 
-          <!-- Tarjeta del formulario -->
-          <div class="card shadow-sm border-0">
-            <div class="card-header bg-secondary text-white text-center py-2">
-              <h5 class="mb-0 fs-6 text-uppercase fw-semibold">Ponte en contacto con nosotros</h5>
+            <div id="header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="header-logo">
+                                <a href="../../index.html" class="logo">
+                                    <img src="../../assets/img/Logo_Checkpoint.jpeg" alt="CheckPoint Store">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="header-search">
+                                <form id="search-form">
+                                <input class="input" id="search-input" placeholder="Buscar producto..." autocomplete="off">
+                                <button class="search-btn" type="submit">Buscar</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 clearfix">
+                            <div class="header-ctn">
+                                <!-- Cart -->
+                                <div class="dropdown">
+                                    <a href="carrito.html">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <span>Mi Carrito</span>
+                                        <div class="qty" id="cart-qty">0</div>
+                                    </a>
+                                </div>
+                                <!-- /Cart -->
+
+                                <div class="menu-toggle">
+                                    <a href="#">
+                                        <i class="fa fa-bars"></i>
+                                        <span>Menú</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </header>
+        <!-- /HEADER -->
 
-            <div class="card-body p-4">
-              <form id="formContacto" novalidate>
-
-                <!-- Campo: Nombre -->
-                <div class="mb-3">
-                  <label for="nombre" class="form-label fw-semibold">Nombre Completo</label>
-                  <input type="text" class="form-control" id="nombre" required maxlength="100" placeholder="Escribe tu nombre...">
-                  <div class="invalid-feedback" id="errorNombre"></div>
+        <!-- NAVIGATION -->
+        <nav id="navigation">
+            <div class="container">
+                <div id="responsive-nav">
+                    <ul class="main-nav">
+                        <li><a href="../../index.html">Inicio</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="LuCriticas.html">Críticas</a></li>
+                        <!-- La clase active ahora está en Contacto -->
+                        <li class="active"><a href="contacto.html">Contacto</a></li>
+                    </ul>
                 </div>
-
-                <!-- Campo: Correo -->
-                <div class="mb-3">
-                  <label for="correo" class="form-label fw-semibold">Correo Electrónico</label>
-                  <input type="email" class="form-control" id="correo" required maxlength="100" placeholder="Escribe tu email...">
-                  <div class="invalid-feedback" id="errorCorreo"></div>
-                </div>
-
-                <!-- Campo: Comentario -->
-                <div class="mb-4">
-                  <label for="comentario" class="form-label fw-semibold">Comentario</label>
-                  <textarea class="form-control" id="comentario" rows="4" required maxlength="500" placeholder="Escribe tu mensaje..."></textarea>
-                  <div class="form-text text-end"><span id="contadorCaracteres">0</span>/500</div>
-                  <div class="invalid-feedback" id="errorComentario"></div>
-                </div>
-
-                <!-- Botón de envío -->
-                <div class="d-grid">
-                  <button type="submit" class="btn btn-dark py-2">Enviar Mensaje</button>
-                </div>
-
-              </form>
             </div>
-          </div>
+        </nav>
+        <!-- /NAVIGATION -->
 
+        <!-- BREADCRUMB -->
+        <div id="breadcrumb" class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="breadcrumb-tree">
+                            <li><a href="../../index.html">Inicio</a></li>
+                            <li class="active">Contacto</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+        <!-- /BREADCRUMB -->
 
-    <!-- Scripts locales -->
-    <script src="../../assets/js/bootstrap.bundle.min.js"></script>
-    <script src="../../assets/js/validaciones.js"></script>
-  </body>
+        <!-- SECTION: Formulario de Contacto -->
+        <div class="section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg-5">
+
+                        <!-- Tarjeta del formulario -->
+                        <div class="card shadow-sm border-0">
+                            <div class="card-header bg-secondary text-white text-center py-2">
+                                <h5 class="mb-0 fs-6 text-uppercase fw-semibold">Ponte en contacto con nosotros</h5>
+                            </div>
+
+                            <div class="card-body p-4">
+                                <form id="formContacto" novalidate>
+
+                                    <!-- Campo: Nombre -->
+                                    <div class="mb-3">
+                                        <label for="nombre" class="form-label fw-semibold">Nombre Completo</label>
+                                        <input type="text" class="form-control" id="nombre" required maxlength="100" placeholder="Escribe tu nombre...">
+                                        <div class="invalid-feedback" id="errorNombre"></div>
+                                    </div>
+
+                                    <!-- Campo: Correo -->
+                                    <div class="mb-3">
+                                        <label for="correo" class="form-label fw-semibold">Correo Electrónico</label>
+                                        <input type="email" class="form-control" id="correo" required maxlength="100" placeholder="Escribe tu email...">
+                                        <div class="invalid-feedback" id="errorCorreo"></div>
+                                    </div>
+
+                                    <!-- Campo: Comentario -->
+                                    <div class="mb-4">
+                                        <label for="comentario" class="form-label fw-semibold">Comentario</label>
+                                        <textarea class="form-control" id="comentario" rows="4" required maxlength="500" placeholder="Escribe tu mensaje..."></textarea>
+                                        <div class="form-text text-end"><span id="contadorCaracteres">0</span>/500</div>
+                                        <div class="invalid-feedback" id="errorComentario"></div>
+                                    </div>
+
+                                    <!-- Botón de envío -->
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-dark py-2">Enviar Mensaje</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /SECTION -->
+
+        <!-- FOOTER -->
+        <footer id="footer">
+            <div id="bottom-footer" class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span class="copyright">
+                                Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                                Tienda de Videojuegos — Proyecto DuocUC
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- /FOOTER -->
+
+        <!-- Scripts -->
+        <script src="../../assets/js/jquery.min.js"></script>
+        <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../../assets/js/main.js"></script>
+        <script src="../../assets/js/validaciones.js"></script>
+    </body>
 </html>
