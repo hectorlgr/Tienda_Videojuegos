@@ -114,19 +114,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const comuna = document.getElementById('comuna');
   const direccion = document.getElementById('direccion');
 
-  // Arreglo complementario de regiones y comunas
-  const regionesYComunas = [
-    {
-      region: "Región Metropolitana de Santiago",
-      comunas: ["Santiago", "Providencia", "Las Condes", "Maipú", "Ñuñoa", "La Florida"]
-    }
-  ];
+const selectRegion = document.getElementById('region');
+const selectComuna = document.getElementById('comuna');
 
   // Poblar select de regiones dinámicamente
-  regionesYComunas.forEach((item, index) => {
+  DATOS_REGIONES.forEach((item, index) => {
     const opt = document.createElement('option');
     opt.value = index;
-    opt.textContent = item.region;
+    opt.textContent = item.nombre;
     region.appendChild(opt);
   });
 
@@ -137,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
       comuna.disabled = true;
       return;
     }
-    const comunasDisponibles = regionesYComunas[region.value].comunas;
+    const comunasDisponibles = DATOS_REGIONES[region.value].comunas;
     comunasDisponibles.forEach(c => {
       const opt = document.createElement('option');
       opt.value = c;

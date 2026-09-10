@@ -90,6 +90,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const txtEnvio = document.getElementById('resumen-envio');
   const txtTotal = document.getElementById('resumen-total');
 
+  if (typeof DATOS_REGIONES !== 'undefined') {
+    DATOS_REGIONES.forEach(item => {
+      const opt = document.createElement('option');
+      opt.value = item.costoEnvio;
+      opt.textContent = `${item.nombre} ($${item.costoEnvio.toLocaleString("es-CL")})`;
+      selectorRegion.appendChild(opt);
+    });
+  }
+
   // Utilidad de formato si no existe globalmente
   const formatearCLP = (valor) => "$" + valor.toLocaleString("es-CL");
 
