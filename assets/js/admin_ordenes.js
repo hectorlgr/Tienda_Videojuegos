@@ -13,7 +13,7 @@ const ordenes = [
   {
     rut: "17.345.678-9",
     nombre: "Carlos",
-    apellido: "Pérez",
+    apellido: "Sepulveda",
     correo: "carlos@gmail.com",
     region: "Región de Valparaíso",
     comuna: "Viña del Mar",
@@ -26,8 +26,8 @@ const ordenes = [
     nombre: "Ana",
     apellido: "Rojas",
     correo: "ana@gmail.com",
-    region: "Región del Biobío",
-    comuna: "Concepción",
+    region: "Región Metropolitana",
+    comuna: "Lo espejo",
     direccion: "Av. Paicaví 789",
     monto: 800000,
     estado: "Enviado"
@@ -37,8 +37,8 @@ const ordenes = [
     nombre: "Pedro",
     apellido: "López",
     correo: "pedro@gmail.com",
-    region: "Región de Ñuble",
-    comuna: "Chillán",
+    region: "Región Metropolitana",
+    comuna: "Lo prado",
     direccion: "Camino Viejo 321",
     monto: 950000,
     estado: "Entregado"
@@ -48,8 +48,8 @@ const ordenes = [
     nombre: "María",
     apellido: "Fernández",
     correo: "maria@gmail.com",
-    region: "Región de la Araucanía",
-    comuna: "Temuco",
+    region: "Región de Valparaíso",
+    comuna: "Villa Alemana",
     direccion: "Av. Alemania 222",
     monto: 720000,
     estado: "Pendiente"
@@ -59,8 +59,8 @@ const ordenes = [
     nombre: "José",
     apellido: "Ramírez",
     correo: "jose@gmail.com",
-    region: "Región de Antofagasta",
-    comuna: "Antofagasta",
+    region: "Región de Valparaíso",
+    comuna: "Quilpué",
     direccion: "Av. Angamos 999",
     monto: 1500000,
     estado: "Pagado"
@@ -70,8 +70,8 @@ const ordenes = [
     nombre: "Camila",
     apellido: "Torres",
     correo: "camila@gmail.com",
-    region: "Región de Los Lagos",
-    comuna: "Puerto Montt",
+    region: "Región Metropolitana",
+    comuna: "Lo Barnechea",
     direccion: "Av. Los Héroes 55",
     monto: 890000,
     estado: "Enviado"
