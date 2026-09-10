@@ -33,6 +33,11 @@ const PRODUCTOS = [
     precio: 45000,
     stock: 15,
     imagen: "assets/img/cara_elden_ring.jpg",
+    imagenes: [
+      "assets/img/cara_elden_ring.jpg",
+      "assets/img/cara_contraportada_elden.jpg",
+      "assets/img/cara_elden_mini1.jpg"
+    ],
     descripcionCorta: "El aclamado juego de rol y acción de FromSoftware.",
     descripcionLarga: "Elden Ring es un juego de rol y acción en mundo abierto desarrollado por FromSoftware. Esta edición física incluye disco y caja original, con soporte para PS5, Xbox Series X y PC."
   },
@@ -45,6 +50,11 @@ const PRODUCTOS = [
     precio: 50000,
     stock: 999,
     imagen: "assets/img/cara_super_mario_odyssey.jpg",
+    imagenes: [
+      "assets/img/cara_super_mario_odyssey.jpg",
+      "assets/img/cara_contraportada_mario.jpg",
+      "assets/img/cara_mario_mini1.jpg"
+    ],
     descripcionCorta: "Aventura 3D clásica para Nintendo Switch.",
     descripcionLarga: "Super Mario Odyssey es una aventura de plataformas 3D para Nintendo Switch. Esta es la versión digital: el código de descarga llega asociado a tu cuenta al instante tras la compra."
   },
@@ -57,6 +67,11 @@ const PRODUCTOS = [
     precio: 550000,
     stock: 6,
     imagen: "assets/img/cara_ps5.jpg",
+    imagenes: [
+      "assets/img/cara_ps5.jpg",
+      "assets/img/cara_medidas_ps5fat.png",
+      "assets/img/cara_mesa_ps5.jpg"
+    ],
     descripcionCorta: "Consola de nueva generación con lector de discos.",
     descripcionLarga: "PlayStation 5 con lector de discos incluido, SSD ultrarrápido y soporte para juegos en 4K. Compatible con la mayoría de títulos de PS4."
   },
@@ -67,6 +82,11 @@ const PRODUCTOS = [
     precio: 350000,
     stock: 9,
     imagen: "assets/img/cara_nintendo_switch_oled.jpg",
+    imagenes: [
+      "assets/img/cara_nintendo_switch_oled.jpg",
+      "assets/img/cara_medidas_nsoled.png",
+      "assets/img/cara_mesa_nsoled.jpg"
+    ],
     descripcionCorta: "Consola híbrida con pantalla OLED vibrante.",
     descripcionLarga: "Nintendo Switch OLED combina modo portátil y de escritorio, con una pantalla OLED de colores más vivos y mayor contraste que el modelo estándar."
   },
@@ -79,6 +99,11 @@ const PRODUCTOS = [
     compatibilidad: "PlayStation 5",
     precio: 65000,
     stock: 30,
+    imagenes: [
+      "assets/img/cara_dualsense.jpg",
+      "assets/img/cara_medidas_dualsence.png",
+      "assets/img/cara_caja_dualsence.jpg"
+    ],
     imagen: "assets/img/cara_dualsense.jpg",
     descripcionCorta: "Mando inalámbrico para PS5 con respuesta háptica.",
     descripcionLarga: "Control DualSense inalámbrico para PlayStation 5, con retroalimentación háptica y gatillos adaptativos que responden a la acción del juego."
@@ -91,6 +116,11 @@ const PRODUCTOS = [
     precio: 40000,
     stock: 8,
     imagen: "assets/img/cara_guitarra_guitar_hero.jpg",
+    imagenes: [
+      "assets/img/cara_guitarra_guitar_hero.jpg",
+      "assets/img/cara_caja_gh.jpg",
+      "assets/img/cara_guitarra_guitar_hero.jpg"
+    ],
     descripcionCorta: "Guitarra de Guitar Hero para jugar en Xbox 360, Xbox One y PC.",
     descripcionLarga: "Guitarra inalámbrica compatible con Xbox 360, Xbox One y PC, ideal para los juegos de la saga Guitar Hero y Rock Band."
   },
@@ -104,6 +134,11 @@ const PRODUCTOS = [
     precio: 25000,
     stock: 20,
     imagen: "assets/img/cara_amiibo_bowser.jpg",
+    imagenes: [
+      "assets/img/cara_amiibo_bowser.jpg",
+      "assets/img/cara_amiibo_sincaja.png",
+      "assets/img/cara_mesa_amiibo.jpg"
+    ],
     descripcionCorta: "Figura interactiva compatible con juegos de Nintendo Switch.",
     descripcionLarga: "Amiibo de Bowser, compatible con distintos juegos de Nintendo Switch que soportan funciones de Amiibo, como desbloqueo de contenido o personajes."
   },

@@ -70,14 +70,14 @@
 /* Imagen principal en la página de detalle (product.html) */
 #product-main-img {
   width: 100%;
-  max-height: 420px;   /* alto fijo: cambia este valor a gusto */
+  height: 100%;   /* alto fijo: cambia este valor a gusto */
   overflow: hidden;
 }
 
 #product-main-img img {
   width: 100%;
-  height: 100%;
-  object-fit: contain; /* aquí "contain" para no cortar el producto principal */
+  max-height: 420px; 
+  object-fit: contain; 
 }
 
 /* Miniaturas debajo de la imagen principal en el detalle */

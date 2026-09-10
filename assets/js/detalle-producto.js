@@ -46,24 +46,37 @@ function renderizarBreadcrumb(producto) {
  * producto.imagenes[]), solo hay que cambiar esta función para recorrerlo.
  */
 function renderizarGaleria(producto) {
+  const rutaBase = "../../";
+
+  const imagenes = (producto.imagenes && producto.imagenes.length > 0)
+    ? producto.imagenes
+    : [producto.imagen, producto.imagen, producto.imagen];
+
   const imgPrincipal = document.querySelector("#main-image-src");
-  imgPrincipal.src = "../../" + producto.imagen;
+  imgPrincipal.src = rutaBase + imagenes[0];
   imgPrincipal.alt = producto.nombre;
 
-  const miniaturas = document.querySelectorAll("#product-imgs .product-preview");
-  miniaturas.forEach((miniatura, indice) => {
-    const img = miniatura.querySelector("img");
-    img.src = "../../" + producto.imagen;
-    img.alt = `${producto.nombre} - vista${indice + 1}`;
+  const contenedorMiniaturas = document.querySelector("#product-imgs");
+  contenedorMiniaturas.innerHTML = imagenes
+    .map(
+      (ruta, indice) => `
+      <div class="col-4">
+        <div class="product-preview${indice === 0 ? " slick-current" : ""}">
+          <img src="${rutaBase + ruta}" alt="${producto.nombre} - vista ${indice + 1}">
+        </div>
+      </div>
+    `
+    )
+    .join("");
 
+  const miniaturas = contenedorMiniaturas.querySelectorAll(".product-preview");
+  miniaturas.forEach((miniatura) => {
     miniatura.addEventListener("click", () => {
-      imgPrincipal.src = img.src;
+      imgPrincipal.src = miniatura.querySelector("img").src;
       miniaturas.forEach((m) => m.classList.remove("slick-current"));
       miniatura.classList.add("slick-current");
     });
   });
-
-  if (miniaturas[0]) miniaturas[0].classList.add("slick-current");
 }
 
 /** Rellena nombre, precio, disponibilidad y descripción larga */
